@@ -1,0 +1,755 @@
+
+/*Navegacion*/
+/* Aumenta el ancho del dropdown y previene que el texto se salga */
+.dropdown-menu.columns-2 {
+    display: inline-block;
+    min-width: 300px;
+    /* ancho mínimo */
+    max-width: 800px;
+    /* ancho máximo para no exagerar */
+    columns: 2;
+    column-gap: 1.5rem;
+    padding: 1rem;
+    white-space: normal;
+    /* evita texto cortado */
+    word-wrap: break-word;
+}
+
+
+.dropdown-menu.columns-2 .dropdown-item {
+    white-space: normal;
+    /* Permite que el texto se acomode en varias líneas si es necesario */
+    word-wrap: break-word;
+    /* Por si hay textos largos sin espacios */
+}
+
+@media (max-width: 768px) {
+    .mega-menu-custom .row {
+        flex-direction: column;
+    }
+}
+
+/*Imagen del nav*/
+.navbar-brand .loguito {
+    max-height: 100px;
+    /* Ajusta este valor al tamaño deseado */
+    object-fit: contain;
+
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    /* Reemplaza con el color normal que deseas */
+}
+
+.navbar-nav .nav-link:hover {
+    color: white;
+    /* Reemplaza con el color al pasar el ratón */
+}
+
+.navbar-nav .nav-link:focus {
+    color: white;
+    /* Reemplaza con el color cuando el enlace tiene el foco */
+}
+
+.navbar-nav .nav-link.active {
+    color: white !important;
+    /* Reemplaza con el color que quieres para "Inicio" */
+}
+
+.add-to-cart-btn {
+    background-color: #3B44AC;
+}
+
+
+.barra-nav-color {
+    background-color: #3B44AC;
+}
+
+.product-card {
+    background-color: rgba(248, 247, 241, 0.848);
+}
+
+/* ========================================================================== */
+/* Estilos del Carrito de Compras */
+/* ========================================================================== */
+
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    transition: width 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+}
+
+.floating-cart:hover {
+    width: 350px;
+    height: auto;
+}
+
+.floating-cart a {
+    color: #333;
+    text-decoration: none;
+    font-size: 24px;
+    display: block;
+}
+
+.floating-cart .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.cart-details {
+    display: none;
+    margin-top: 10px;
+}
+
+.floating-cart:hover .cart-details {
+    display: block;
+}
+
+.cart-details table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.cart-details th,
+.cart-details td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-details img {
+    width: 40px;
+    height: auto;
+}
+
+.cart-details input[type="number"] {
+    width: 50px;
+}
+
+.cart-details button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.cart-details button:hover {
+    background-color: #cc0000;
+}
+
+.total {
+    text-align: right;
+    padding-top: 10px;
+}
+
+#floating-empty-cart {
+    width: 50%;
+    padding: 6px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.pay-buttom {
+    width: 100%;
+    padding: 6px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+
+#floating-empty-cart:hover {
+    background-color: #555;
+}
+
+/*cambio de color de mi carrusel*/
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo negro con 60% de opacidad */
+    padding: 0px; /* Espaciado interno para que el texto no toque los bordes */
+    border-radius: 20px; /* Bordes ligeramente redondeados (opcional) */
+    color: #fff; /* Color del texto blanco para contrastar con el fondo oscuro */
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    color: #fff; /* O el color de texto que prefieras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra más fuerte */
+}
+
+/*Alerta de agregar al carrito*/
+.toast-alert {
+    position: fixed;
+    bottom: 300px;
+    left: 100px;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    display: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+
+
+
+/* Panel del Carrito (Overlay o Sidebar) */
+/* Estilo base del panel del carrito (oculto) */
+#cart-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    /* O la forma que uses para ocultarlo, ej: transform: translateX(100%); */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    /* O la propiedad que animes */
+    z-index: 1050;
+    /* Asegúrate que esté por encima de otros elementos */
+    /* display: none; */
+    /* Si usas display, la transición no funcionará directamente */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s, right 0.3s;
+    /* Ejemplo más completo */
+}
+
+/* Estilo cuando el carrito es visible */
+#cart-panel.is-visible {
+    right: 0;
+    /* display: block; */
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Contenedor principal de la sección de inicio */
+.container-home {
+    padding: 0;
+    /* Elimina el relleno interno */
+    margin: 0;
+    /* Elimina los márgenes externos */
+}
+
+
+
+/* ESTILOS PARA LAS TARJETAS DE PRODUCTO
+    ------------------------------------
+    Esta sección define la apariencia y el comportamiento de las tarjetas que muestran los productos.
+*/
+
+/* Estilos base para las tarjetas de producto */
+.product-card {
+    border: 1px solid #dee2e6;
+    /* Borde delgado y suave */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(253, 171, 8, 0.1);
+    /* Sombra suave para dar profundidad */
+    transition: transform 0.2s;
+    /* Transición suave para el efecto hover */
+    position: relative;
+    /* Posicionamiento relativo para elementos internos */
+    overflow: hidden;
+    /* Oculta el contenido que se desborda */
+}
+
+/* Estilos para el contenedor 'medidas' (posiblemente para posicionamiento) */
+.medidas {
+    margin-top: 45px;
+    /* Margen superior para separarlo de otros elementos */
+    width: auto;
+    /* Ancho automático para ajustarse al contenido */
+}
+
+/* ESTILOS ESPECÍFICOS DEL CARRUSEL (SI APLICA)
+    ------------------------------------------
+    Esta sección define estilos que se aplican específicamente al carrusel.
+*/
+
+.carousel-inner img {
+    padding-top: 2px;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Estilos para las imágenes dentro del carrusel (si tienes uno) */
+#carouselExampleCaptions .carousel-inner .carousel-item img {
+    padding: 6px;
+    /* Relleno interno alrededor de la imagen */
+    height: 60%;
+    /* Altura del 88% de la altura de la ventana */
+}
+
+/* ESTILOS PARA EL ANCHO DE LAS TARJETAS (SI APLICA)
+    -----------------------------------------------
+    Esta sección define estilos para controlar el ancho de las tarjetas.
+*/
+
+/* Estilos para las tarjetas dentro del contenedor 'medidas' */
+.medidas .card {
+    /* O simplemente .card si quieres aplicar a todas las tarjetas */
+    width: 250px;
+    /* Ancho fijo de 250 píxeles */
+}
+
+
+
+/* ESTILOS PARA EL CONTENEDOR DE LA IMAGEN
+    --------------------------------------
+    Esta sección define estilos para el contenedor que envuelve la imagen.
+*/
+
+/* Estilos para el contenedor de la imagen */
+.image-container {
+    width: 100%;
+    /* Ocupa todo el ancho de la tarjeta */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+    overflow: hidden;
+    /* Oculta el contenido que se desborda */
+    min-height: 300px;
+    /* Altura mínima de 300 píxeles */
+}
+
+/* ESTILOS PARA LA IMAGEN DE LA TARJETA
+    ----------------------------------
+    Esta sección define estilos para la imagen dentro de la tarjeta.
+*/
+
+/* Estilos para la imagen principal de la tarjeta */
+.card-img-top {
+    width: 100%;
+    /* Ocupa todo el ancho del contenedor */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+    display: block;
+    /* Se comporta como un bloque para evitar espacios extra */
+    transition: transform 0.3s ease;
+    /* Transición suave para el efecto zoom */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el mouse */
+}
+
+/* Estilos para la imagen cuando está en modo "zoom" */
+.card-img-top.zoomed-in {
+    transform: scale(1.2);
+    /* Aumenta el tamaño al 120% */
+    z-index: 2;
+    /* Coloca la imagen encima de otros elementos */
+    position: absolute;
+    /* Posicionamiento absoluto dentro del contenedor */
+    top: 0;
+    /* Alinea la parte superior con el contenedor */
+    left: 0;
+    /* Alinea la parte izquierda con el contenedor */
+    height: 100%;
+    /* Ocupa toda la altura del contenedor */
+    width: 100%;
+    /* Ocupa todo el ancho del contenedor */
+    object-fit: contain;
+    /* Ajusta la imagen dentro del contenedor sin recortar */
+}
+
+/* ESTILOS PARA EL EFECTO HOVER EN LA TARJETA
+    -----------------------------------------
+    Esta sección define estilos para el efecto cuando el usuario pasa el mouse sobre la tarjeta.
+*/
+
+/* Estilos para la tarjeta cuando se pasa el mouse */
+.product-card:hover {
+    transform: scale(1.02);
+    /* Ligeramente más grande al pasar el mouse */
+}
+
+/* Estilos para la imagen cuando se pasa el mouse sobre la tarjeta */
+.product-card .card-img-top {
+    max-height: 300px;
+    /* Altura máxima de la imagen */
+    object-fit: cover;
+    /* Ajusta la imagen al contenedor, recortando si es necesario */
+    border-top-left-radius: 10px;
+    /* Radio de borde superior izquierdo */
+    border-top-right-radius: 10px;
+    /* Radio de borde superior derecho */
+    transition: transform 0.3s ease;
+    /* Transición suave para el efecto zoom */
+}
+
+/* Estilos para la imagen cuando se pasa el mouse sobre la tarjeta */
+.product-card:hover .card-img-top {
+    transform: scale(1.1);
+    /* Aumenta el tamaño de la imagen al 110% */
+}
+
+/* ESTILOS PARA EL CUERPO DE LA TARJETA
+    -----------------------------------
+    Esta sección define estilos para el área que contiene el texto de la tarjeta.
+*/
+
+/* Estilos para el cuerpo de la tarjeta */
+.product-card .card-body {
+    padding: 1rem;
+    /* Relleno interno */
+}
+
+/* Estilos para el título de la tarjeta */
+.product-card .card-title {
+    font-size: 1.2rem;
+    /* Tamaño de la fuente */
+    margin-bottom: 0.5rem;
+    /* Margen inferior */
+}
+
+/* Estilos para el precio del producto */
+.product-card .price {
+    font-weight: bold;
+    /* Texto en negrita */
+    color: #3B44AC;
+    /* Color azul (Bootstrap) */
+}
+
+/* Estilos para el botón "Añadir al carrito" */
+.product-card .add-to-cart-btn {
+    width: 100%;
+    /* Ocupa todo el ancho del cuerpo de la tarjeta */
+}
+
+/* ESTILOS GENERALES PARA LAS TARJETAS (SI APLICA)
+    ---------------------------------------------
+    Esta sección define estilos generales para todas las tarjetas.
+*/
+
+/* Estilos generales para las tarjetas */
+.card {
+    width: 12rem;
+    /* Ancho de la tarjeta */
+    height: auto;
+    /* Altura automática */
+}
+
+/* Estilos para las imágenes dentro del cuerpo de la tarjeta (si tienes) */
+.card-body img {
+    width: 100%;
+    /* Ocupa todo el ancho del cuerpo de la tarjeta */
+    height: 200px;
+    /* Altura fija */
+    object-fit: cover;
+    /* Ajusta la imagen, recortando si es necesario */
+    display: block;
+    /* Se comporta como un bloque */
+    border-radius: 15px;
+    /* Bordes redondeados */
+}
+
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* MEDIA QUERIES PARA RESPONSIVE DESIGN (TABLETS)
+    --------------------------------------------
+    Esta sección define estilos específicos para pantallas medianas (tablets).
+*/
+
+/* Estilos para pantallas medianas (tablets en vertical, etc.) */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    /* Estilos para las tarjetas en columnas en tablets */
+    .col-md-6 .product-card {
+        display: flex;
+        /* Usa Flexbox para la disposición horizontal */
+        flex-direction: row;
+        /* Disposición en fila */
+        width: 100%;
+        /* Ocupa todo el ancho de la columna */
+        margin-bottom: 15px;
+        /* Margen inferior */
+    }
+
+    /* Estilos para las imágenes en tablets */
+    .col-md-6 .product-card>img {
+        width: 30%;
+        /* Ancho de la imagen */
+        height: auto;
+        /* Altura automática */
+        object-fit: cover;
+        /* Ajusta la imagen, recortando si es necesario */
+    }
+
+    /* Estilos para el cuerpo de la tarjeta en tablets */
+    .col-md-6 .product-card .card-body {
+        width: 70%;
+        /* Ancho del cuerpo de la tarjeta */
+        padding: 1rem;
+        /* Relleno interno */
+        display: flex;
+        /* Usa Flexbox para la disposición vertical */
+        flex-direction: column;
+        /* Disposición en columna */
+        justify-content: space-between;
+        /* Espacio entre elementos verticalmente */
+        align-items: flex-start;
+        /* Alinea elementos al inicio horizontalmente */
+    }
+}
+
+/* ANIMACION DE PRODUCTO ENCONTRADO */
+
+.destello {
+    animation: brillar 1.5s ease-in-out;
+    border: 3px solid #ffc107;
+    border-radius: 15px;
+}
+
+@keyframes brillar {
+    0% {
+        box-shadow: 0 0 10px 5px #c29307;
+    }
+
+    50% {
+        box-shadow: 0 0 20px 10px #010f0b;
+    }
+
+    100% {
+        box-shadow: 0 0 0px 0px transparent;
+    }
+}
+
+
+/* MEDIA QUERIES PARA RESPONSIVE DESIGN (ESCRITORIO)
+    ----------------------------------------------
+    Esta sección define estilos específicos para pantallas grandes (escritorio).
+*/
+
+/* Estilos para pantallas grandes (escritorio) */
+@media (min-width: 992px) {
+
+    .mi-contenedor-flexible {
+        flex-direction: row;
+        /* Puedes ajustar la alineación aquí si es necesario para la dirección de fila */
+        /* justify-content-center ya está en tu HTML y funcionará */
+    }
+
+    .dropdown-menu.columns-2 {
+        display: inline-block;
+        min-width: auto;
+        max-width: 600px;
+    }
+
+    /* Estilos para las tarjetas en escritorio */
+    .product-card {
+        display: block;
+        /* Vuelve a la disposición en bloque */
+        width: auto;
+        /* Ancho automático */
+        max-width: none !important;
+        /* Elimina cualquier ancho máximo forzado */
+        flex-direction: column;
+        /* Vuelve a la disposición vertical interna */
+    }
+
+    /* Estilos para las imágenes en escritorio */
+    .product-card>img {
+        width: 100%;
+        /* La imagen ocupa todo el ancho de la tarjeta */
+        height: auto;
+        /* Altura automática */
+        object-fit: cover;
+        /* Ajusta la imagen, recortando si es necesario */
+    }
+
+    /* Estilos para el cuerpo de la tarjeta en escritorio */
+    .product-card .card-body {
+        width: 100%;
+        /* Ocupa todo el ancho de la tarjeta */
+        display: block;
+        /* Vuelve a la disposición en bloque */
+    }
+}
+
+/*Carrito de compras*/
+
+
+
+/* MEDIA QUERIES PARA RESPONSIVE DESIGN (MÓVILES)
+    -------------------------------------------
+    Esta sección define estilos específicos para pantallas pequeñas (móviles).
+*/
+
+/* Estilo por defecto (para pantallas pequeñas - "columna") */
+
+
+
+
+/* Estilos para pantallas extra pequeñas (hasta 575px) y pequeñas (hasta 767px) */
+@media (max-width: 767px) {
+    /* Estilos para las tarjetas en móviles */
+
+    .carousel-inner .carousel-item img {
+        max-height: 200px; /* Aumenta la altura máxima en tablets */
+    }
+
+    #carouselThree{
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .card-father {
+        width: 100%;
+    }
+
+    .medidas .product-card {
+        width: 100%;
+    }
+
+    .product-card {
+        max-width: none !important;
+        /* Elimina cualquier ancho máximo forzado */
+        width: 100%;
+        /* Ocupa todo el ancho disponible */
+        display: flex;
+        /* Usa Flexbox para la disposición horizontal */
+        flex-direction: row;
+        /* Disposición en fila */
+        margin-bottom: 5px;
+        /* Margen inferior */
+        border: 1px solid #dee2e6;
+        /* Borde delgado y suave */
+        border-radius: 0.25rem;
+        /* Bordes redondeados */
+        overflow: hidden;
+        /* Oculta el contenido que se desborda */
+        border-top-right-radius: 25px;
+    }
+
+    /* Estilos para las imágenes en móviles */
+    .product-card>img {
+        width: 40%;
+        /* Ancho de la imagen */
+        height: auto;
+        /* Altura automática */
+        object-fit: cover;
+        /* Ajusta la imagen, recortando si es necesario */
+    }
+
+    /* Estilos para el cuerpo de la tarjeta en móviles */
+    .product-card .card-body {
+        width: 60%;
+        /* Ancho del cuerpo de la tarjeta */
+        padding: 1rem;
+        /* Relleno interno */
+        display: flex;
+        /* Usa Flexbox para la disposición vertical */
+        flex-direction: column;
+        /* Disposición en columna */
+        justify-content: space-between;
+        /* Espacio entre elementos verticalmente */
+        align-items: flex-start;
+        /* Alinea elementos al inicio horizontalmente */
+    }
+
+    .medidas {
+        margin: 5px;
+        /* Margen entre las tarjetas*/
+    }
+
+
+    /* Estilos para el título de la tarjeta en móviles */
+    .product-card .card-title {
+
+        font-size: 1rem;
+        /* Tamaño de la fuente */
+        margin-bottom: 0.5rem;
+        /* Margen inferior */
+    }
+
+    /* Estilos para el texto de la tarjeta en móviles */
+    .product-card .card-text {
+        font-size: 0.875rem;
+        /* Tamaño de la fuente */
+        margin-bottom: 0.25rem;
+        /* Margen inferior */
+    }
+
+    /* Estilos para el precio del producto en móviles */
+    .product-card .price {
+        font-weight: bold;
+        /* Texto en negrita */
+        font-size: 1rem;
+        /* Tamaño de la fuente */
+    }
+
+    /* Estilos para el botón "Añadir al carrito" en móviles */
+    .product-card .add-to-cart-btn {
+        font-size: 0.875rem;
+        /* Tamaño de la fuente */
+        padding: 0.5rem 0.75rem;
+        /* Relleno interno */
+    }
+
+    .container-product {
+        padding-top: 5px;
+    }
+}
